@@ -1,13 +1,313 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>reels-maker-studio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة محمد علي تك - الإنتاج الاحترافي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --yt-red: #FF0000;
+            --fb-blue: #1877F2;
+            --ig-pink: #E1306C;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #0d0d0d;
+            background-image: radial-gradient(at 0% 0%, rgba(46, 204, 113, 0.15) 0, transparent 50%);
+            color: white; margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+        }
+
+        header { padding: 30px; text-align: center; background: rgba(0,0,0,0.6); border-bottom: 1px solid var(--glass); }
+        header h2 { margin: 0; font-weight: 800; letter-spacing: 1px; }
+        header p { margin: 10px 0 0; color: var(--primary); font-weight: 600; opacity: 0.9; font-size: 1.1rem; }
+
+        .main-card {
+            background: var(--glass); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px; padding: 35px; width: 95%; max-width: 750px; margin: 40px auto;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        .form-label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--primary); font-size: 1.1rem; }
+        .form-label i { margin-left: 8px; }
+
+        select, input {
+            width: 100%; padding: 15px; margin-bottom: 25px; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.5); color: white;
+            font-size: 1rem; box-sizing: border-box; outline: none; transition: 0.3s;
+        }
+
+        select:focus, input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(46, 204, 113, 0.3); }
+
+        .action-btns { display: flex; gap: 20px; margin-bottom: 25px; }
+
+        .btn-add { 
+            background: #34495e; color: white; border: none; padding: 18px; 
+            border-radius: 15px; flex: 1; cursor: pointer; font-weight: bold; 
+            transition: 0.4s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-add:hover { background: #455a64; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        .btn-generate { 
+            background: var(--primary); color: black; font-weight: 800; padding: 18px; 
+            border: none; border-radius: 15px; flex: 2; cursor: pointer; 
+            font-size: 1.2rem; transition: 0.4s; display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .btn-generate:hover { background: #27ae60; transform: scale(1.03); box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4); }
+
+        .batch-list { 
+            background: rgba(0,0,0,0.4); border-radius: 20px; padding: 25px; 
+            margin-top: 30px; border: 1px dashed var(--primary); display: none; 
+        }
+        .batch-item { 
+            background: rgba(255,255,255,0.07); padding: 18px; border-radius: 15px; 
+            margin-bottom: 15px; display: flex; justify-content: space-between; 
+            align-items: center; border-right: 6px solid var(--primary);
+            animation: fadeInRight 0.5s ease;
+        }
+        
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+
+        .batch-info b { color: var(--primary); font-size: 1.1rem; }
+        .batch-info small { color: #ccc; display: block; margin-top: 6px; font-size: 0.95rem; }
+
+        #progress-container { display: none; margin-top: 35px; text-align: center; }
+        .progress-wrapper { 
+            width: 100%; background: rgba(255,255,255,0.1); border-radius: 25px; 
+            height: 40px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .progress-bar { 
+            width: 0%; height: 100%; background: linear-gradient(90deg, #2ecc71, #27ae60, #1abc9c); 
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .percentage { 
+            position: absolute; width: 100%; text-align: center; font-weight: 900; 
+            top: 8px; font-size: 1.1rem; color: #fff; text-shadow: 0 2px 5px rgba(0,0,0,0.8); 
+        }
+
+        .status-box { margin-top: 20px; font-size: 1.1rem; font-weight: 600; color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .status-box i { color: var(--primary); }
+
+        #final-results {
+            display:none; margin-top: 30px; padding: 25px; 
+            background: rgba(46, 204, 113, 0.12); border-radius: 20px; 
+            border: 1px solid var(--primary); animation: zoomIn 0.5s ease;
+        }
+
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .social-section { 
+            display: flex; justify-content: center; gap: 35px; 
+            margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--glass); 
+        }
+        .social-icon { font-size: 2.2rem; transition: 0.5s; text-decoration: none; opacity: 0.8; }
+        .social-icon:hover { opacity: 1; transform: translateY(-10px) rotate(8deg); }
+        .fa-youtube { color: var(--yt-red); }
+        .fa-facebook { color: var(--fb-blue); }
+        .fa-instagram { color: var(--ig-pink); }
+        .fa-tiktok { color: white; }
+
+        footer { 
+            margin-top: auto; padding: 40px; text-align: center; 
+            background: rgba(0,0,0,0.95); border-top: 2px solid var(--glass); line-height: 1.8;
+        }
+        footer .rights { font-size: 1rem; color: #fff; font-weight: 600; }
+        footer .dev { font-size: 0.9rem; color: #bbb; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2><i class="fas fa-microchip"></i> Mohammed Ali Tech</h2>
+    <p><i class="fas fa-bolt"></i> أداة إنتاج الريلز القرآنية التلقائية AI </p>
+</header>
+
+<div class="main-card">
+    <label class="form-label"><i class="fas fa-microphone-alt"></i> اختيار القارئ المفضل</label>
+    <select id="reader">
+        {% for reader in readers %}
+        <option value="{{ reader.identifier }}">{{ reader.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label class="form-label"><i class="fas fa-book-open"></i> اختيار السورة المباركة</label>
+    <select id="surah">
+        {% for surah in surahs %}
+        <option value="{{ surah.id }}" data-name="{{ surah.name_arabic }}" data-count="{{ surah.verses_count }}">
+            {{ surah.name_arabic }} ({{ surah.verses_count }} آية)
+        </option>
+        {% endfor %}
+    </select>
+
+    <div style="display: flex; gap: 20px;">
+        <div style="flex: 1;"><label class="form-label"><i class="fas fa-sort-numeric-up"></i> من آية</label><input type="number" id="start" value="1"></div>
+        <div style="flex: 1;"><label class="form-label"><i class="fas fa-sort-numeric-down"></i> إلى آية</label><input type="number" id="end" value="7"></div>
+    </div>
+
+    <div class="action-btns">
+        <button class="btn-add" onclick="addToBatch()"><i class="fas fa-folder-plus"></i> إضافة للقائمة</button>
+        <button class="btn-generate" onclick="startBatchProcess()" id="mainBtn"><i class="fas fa-film"></i> بدأ الإنتاج الشامل</button>
+    </div>
+
+    <div id="batch-container" class="batch-list">
+        <h4 style="margin: 0 0 15px 0; color: var(--primary); border-bottom: 1px solid var(--glass); padding-bottom: 10px;">📋 فيديوهات في انتظار المعالجة:</h4>
+        <div id="items-list"></div>
+    </div>
+
+    <div id="progress-container">
+        <div class="progress-wrapper">
+            <div class="progress-bar" id="bar"></div>
+            <div class="percentage" id="percentText">0%</div>
+        </div>
+        <div class="status-box">
+            <i id="status-icon" class="fas fa-spinner fa-spin"></i>
+            <span id="status-text">في انتظار البدء...</span>
+        </div>
+        
+        <div id="final-results">
+            <p style="color: var(--primary); font-weight: 800; font-size: 1.3rem; margin-bottom: 15px;"><i class="fas fa-award"></i> مبروك! اكتملت المهمة بنجاح</p>
+            <p style="font-size: 0.9rem; color: #ccc;">📍 تم حفظ الملفات في المجلد التالي: <br>
+                <span id="folder-path" style="color:#00ff00; background:#111; padding:12px; display:block; margin-top:10px; border-radius:10px; font-family: monospace; word-break: break-all; border: 1px solid #222;"></span>
+            </p>
+            <ul id="files-list" style="padding-right: 25px; font-size: 1rem; margin-top: 20px; color: #fff; line-height: 2;"></ul>
+        </div>
+    </div>
+
+    <div class="social-section">
+        <a href="https://youtube.com/@MohammedAlitech" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://facebook.com/MohammedAlitech" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/moalitech897" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@MohammedAlitech" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</div>
+
+<footer>
+    <div class="rights">جميع الحقوق محفوظة © 2026 لمؤسسة محمد علي تك للبرمجيات</div>
+    <div class="dev">تطوير وبرمجة م/ محمد علي - متخصص في حلول الذكاء الاصطناعي وإنتاج المحتوى الرقمي</div>
+</footer>
+
+<script>
+let batchQueue = [];
+
+document.getElementById('surah').addEventListener('change', function() {
+    const selected = this.options[this.selectedIndex];
+    document.getElementById('end').value = selected.getAttribute('data-count');
+});
+
+function addToBatch() {
+    const r = document.getElementById('reader');
+    const s = document.getElementById('surah');
+    const start = parseInt(document.getElementById('start').value);
+    const end = parseInt(document.getElementById('end').value);
+    const max = parseInt(s.options[s.selectedIndex].getAttribute('data-count'));
+
+    if(isNaN(start) || isNaN(end) || start < 1 || end < 1) { alert("يرجى إدخال أرقام صحيحة"); return; }
+    if(end > max) { alert("لقد تجاوزت عدد آيات السورة!"); return; }
+    if(start > end) { alert("بداية النطاق أكبر من نهايته!"); return; }
+
+    batchQueue.push({
+        reader: r.value, readerName: r.options[r.selectedIndex].text,
+        surah: s.value, surah_ar: s.options[s.selectedIndex].getAttribute('data-name'),
+        start: start, end: end
+    });
+    renderBatch();
+}
+
+function renderBatch() {
+    const container = document.getElementById('batch-container');
+    container.style.display = batchQueue.length > 0 ? 'block' : 'none';
+    document.getElementById('items-list').innerHTML = batchQueue.map((t, i) => `
+        <div class="batch-item">
+            <div class="batch-info">
+                <b>${t.surah_ar}</b> (من ${t.start} لـ ${t.end})
+                <small><i class="fas fa-microphone"></i> القارئ: ${t.readerName}</small>
+            </div>
+            <i class="fas fa-times-circle" style="color:#ff4d4d; cursor:pointer; font-size:1.4rem;" onclick="batchQueue.splice(${i},1);renderBatch();"></i>
+        </div>
+    `).join('');
+}
+
+async function startBatchProcess() {
+    if(batchQueue.length === 0) return;
+    const btn = document.getElementById('mainBtn');
+    const progCont = document.getElementById('progress-container');
+    const bar = document.getElementById('bar');
+    const statusText = document.getElementById('status-text');
+    const statusIcon = document.getElementById('status-icon');
+    const finalRes = document.getElementById('final-results');
+
+    btn.style.display = 'none'; progCont.style.display = 'block'; finalRes.style.display = 'none';
+    let produced = [];
+
+    const phrases = [
+        "جاري جلب الآيات من المصدر...",
+        "تحميل الصوت بدقة عالية...",
+        "اختيار خلفيات سينمائية مناسبة...",
+        "بدء المونتاج التلقائي والدمج...",
+        "ضبط النصوص وإضافة المؤثرات...",
+        "وضع اللمسات النهائية للفيديو..."
+    ];
+
+    for(let i = 0; i < batchQueue.length; i++) {
+        const task = batchQueue[i];
+        let pIndex = 0;
+        
+        let progress = 0;
+        const interval = setInterval(() => {
+            if (progress < 97) {
+                progress += Math.random() * 1.2;
+                bar.style.width = progress + "%";
+                document.getElementById('percentText').innerText = Math.floor(progress) + "%";
+                // تغيير الجملة حسب نسبة التقدم
+                if(progress > pIndex * 15 && pIndex < phrases.length) {
+                    statusText.innerText = `${task.surah_ar}: ${phrases[pIndex]}`;
+                    pIndex++;
+                }
+            }
+        }, 900);
+
+        try {
+    const response = await fetch('/generate', { 
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(task) 
+    });
+
+    const result = await response.json();
+    clearInterval(interval);
+
+    if(result.status === 'success') {
+        produced.push(result.file_name);
+        bar.style.width = "100%";
+        document.getElementById('percentText').innerText = "100%";
+        document.getElementById('folder-path').innerText =
+            result.full_path.substring(0, result.full_path.lastIndexOf("\\") + 1);
+    } else {
+        alert("حدث خطأ في الإنتاج: " + (result.message || "خطأ غير معروف"));
+        statusText.innerText = "❌ توقف الإنتاج بسبب خطأ";
+        statusIcon.className = "fas fa-times-circle";
+        return; // يوقف باقي الـ batch
+    }
+
+} catch (e) {
+    clearInterval(interval);
+    alert("حدث خطأ في الاتصال بالسيرفر");
+    statusText.innerText = "❌ توقف الإنتاج بسبب خطأ في الاتصال";
+    statusIcon.className = "fas fa-times-circle";
+    return;
+}
+    }
+
+    statusText.innerText = "تم إنتاج القائمة بالكامل بنجاح!";
+    statusIcon.className = "fas fa-check-double";
+    finalRes.style.display = 'block';
+    document.getElementById('files-list').innerHTML = produced.map(n => `<li><i class="fas fa-video"></i> ${n}</li>`).join('');
+    btn.style.display = 'flex'; batchQueue = []; renderBatch();
+}
+</script>
+</body>
 </html>

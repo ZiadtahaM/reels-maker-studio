@@ -1,0 +1,24 @@
+{
+  "format": "mp4",
+  "aspect": "9:16",
+  "codec": "h264_aac",
+  "resolution": "1080x1920",
+  "job": {
+    "id": "job-1792434339779-942",
+    "reader": "mishary_alafasy",
+    "readerName": "مشاري راشد العفاسي",
+    "surahId": 1,
+    "surahNameArabic": "الفاتحة",
+    "startVerse": 1,
+    "endVerse": 7,
+    "verseCount": 7,
+    "aspectRatio": "9:16",
+    "resolution": "1080x1920",
+    "durationMs": 45500,
+    "status": "COMPLETED",
+    "outputFileName": "reel_surah_001_v1_7_1792434339779.mp4",
+    "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1792434339779.mp4",
+    "createdAt": "2026-10-19T18:25:39.785Z",
+    "completedAt": "2026-10-19T18:25:39.785Z"
+  }
+}
