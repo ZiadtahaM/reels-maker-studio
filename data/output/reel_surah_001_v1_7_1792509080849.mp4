@@ -1,0 +1,44 @@
+{
+  "format": "mp4",
+  "aspect": "9:16",
+  "codec": "h264_aac",
+  "resolution": "1080x1920",
+  "entropySignature": {
+    "panVariancePercent": -2.99,
+    "colorTempOffsetK": 138,
+    "audioCrossfadeMs": 150,
+    "lufsNormalization": -14,
+    "kfgqpcUthmaniGlyphsVerified": true,
+    "perceptualHash": "e56e4e192bf6195a664f3f880a083eccd2a9db33263f716ebda570666e197544",
+    "duplicateHashBypassActive": true,
+    "timestamp": "2026-10-20T15:11:20.849Z"
+  },
+  "job": {
+    "id": "job-1792509080849-773",
+    "reader": "alafasy",
+    "readerName": "مشاري راشد العفاسي",
+    "surahId": 1,
+    "surahNameArabic": "الفاتحة",
+    "startVerse": 1,
+    "endVerse": 7,
+    "verseCount": 7,
+    "aspectRatio": "9:16",
+    "resolution": "1080x1920",
+    "durationMs": 45500,
+    "entropySignature": {
+      "panVariancePercent": -2.99,
+      "colorTempOffsetK": 138,
+      "audioCrossfadeMs": 150,
+      "lufsNormalization": -14,
+      "kfgqpcUthmaniGlyphsVerified": true,
+      "perceptualHash": "e56e4e192bf6195a664f3f880a083eccd2a9db33263f716ebda570666e197544",
+      "duplicateHashBypassActive": true,
+      "timestamp": "2026-10-20T15:11:20.849Z"
+    },
+    "status": "COMPLETED",
+    "outputFileName": "reel_surah_001_v1_7_1792509080849.mp4",
+    "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1792509080849.mp4",
+    "createdAt": "2026-10-20T15:11:20.849Z",
+    "completedAt": "2026-10-20T15:11:20.849Z"
+  }
+}
