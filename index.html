@@ -118,6 +118,39 @@
         footer .rights { font-size: 1rem; color: #fff; font-weight: 600; }
         footer .dev { font-size: 0.9rem; color: #bbb; margin-top: 8px; }
     </style>
+
+<script>
+// Dynamic sync with Cloudflare Edge DDD API
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const [readersRes, surahsRes] = await Promise.all([
+            fetch('/api/readers'),
+            fetch('/api/surahs')
+        ]);
+        if (readersRes.ok) {
+            const readers = await readersRes.json();
+            const rSelect = document.getElementById('reader');
+            if (readers && readers.length > 0) {
+                rSelect.innerHTML = readers.map(r => `<option value="${r.identifier}">${r.name}</option>`).join('');
+            }
+        }
+        if (surahsRes.ok) {
+            const surahs = await surahsRes.json();
+            const sSelect = document.getElementById('surah');
+            if (surahs && surahs.length > 0) {
+                sSelect.innerHTML = surahs.map((s, idx) => `<option value="${s.id}" data-name="${s.name_arabic}" data-count="${s.verses_count}" ${s.id === 67 ? 'selected' : ''}>${s.name_arabic} (${s.verses_count} آية)</option>`).join('');
+                const selected = sSelect.options[sSelect.selectedIndex];
+                if (selected) {
+                    document.getElementById('end').value = selected.getAttribute('data-count');
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('Using pre-populated canonical datasets:', e);
+    }
+});
+</script>
+
 </head>
 <body>
 
@@ -129,23 +162,54 @@
 <div class="main-card">
     <label class="form-label"><i class="fas fa-microphone-alt"></i> اختيار القارئ المفضل</label>
     <select id="reader">
-        {% for reader in readers %}
-        <option value="{{ reader.identifier }}">{{ reader.name }}</option>
-        {% endfor %}
+        <option value="ar.alafasy">مشاري راشد العفاسي</option>
+        <option value="ar.abdulbasitmurattal">عبد الباسط عبد الصمد (مرتل)</option>
+        <option value="ar.husary">محمود خليل الحصري</option>
+        <option value="ar.minshawi">محمد صديق المنشاوي</option>
     </select>
 
     <label class="form-label"><i class="fas fa-book-open"></i> اختيار السورة المباركة</label>
     <select id="surah">
-        {% for surah in surahs %}
-        <option value="{{ surah.id }}" data-name="{{ surah.name_arabic }}" data-count="{{ surah.verses_count }}">
-            {{ surah.name_arabic }} ({{ surah.verses_count }} آية)
-        </option>
-        {% endfor %}
+        <option value="1" data-name="سورة الفاتحة" data-count="7">سورة الفاتحة (7 آيات)</option>
+        <option value="18" data-name="سورة الكهف" data-count="110">سورة الكهف (110 آية)</option>
+        <option value="36" data-name="سورة يس" data-count="83">سورة يس (83 آية)</option>
+        <option value="55" data-name="سورة الرحمن" data-count="78">سورة الرحمن (78 آية)</option>
+        <option value="67" data-name="سورة الملك" data-count="30" selected>سورة الملك (30 آية)</option>
+        <option value="112" data-name="سورة الإخلاص" data-count="4">سورة الإخلاص (4 آيات)</option>
     </select>
 
     <div style="display: flex; gap: 20px;">
         <div style="flex: 1;"><label class="form-label"><i class="fas fa-sort-numeric-up"></i> من آية</label><input type="number" id="start" value="1"></div>
         <div style="flex: 1;"><label class="form-label"><i class="fas fa-sort-numeric-down"></i> إلى آية</label><input type="number" id="end" value="7"></div>
+    </div>
+
+    
+    <!-- Khatmah Certificate & WhatsApp Viral Engine -->
+    <div style="background: rgba(46, 204, 113, 0.08); border: 1px solid rgba(46, 204, 113, 0.3); border-radius: 20px; padding: 20px; margin-top: 25px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h4 style="margin: 0; color: var(--primary); font-size: 1.1rem;"><i class="fab fa-whatsapp"></i> شهادة ختمة فيديو تفاعلية لأولياء الأمور</h4>
+            <span style="background: #27ae60; color: #fff; font-size: 0.75rem; padding: 3px 8px; border-radius: 12px; font-weight: bold;">Safe-Zone 25%-68%</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #ccc; margin-top: 0;">توليد ريلز قرآني عمودي مخصص للطالب مع رابط مشاركة فوري على واتساب العائلة لحماية الاشتراك وزيادة الإحالات.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <div>
+                <label style="font-size: 0.8rem; color: #aaa; display: block; margin-bottom: 4px;">اسم الطالب</label>
+                <input type="text" id="khatmahStudent" value="يوسف أحمد الشناوي" style="padding: 10px; margin-bottom: 0; border-radius: 10px;">
+            </div>
+            <div>
+                <label style="font-size: 0.8rem; color: #aaa; display: block; margin-bottom: 4px;">رقم واتساب ولي الأمر</label>
+                <input type="text" id="khatmahPhone" value="+201099887766" style="padding: 10px; margin-bottom: 0; border-radius: 10px;">
+            </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button id="khatmah-cert-btn" data-feature="khatmah-cert-btn" onclick="generateKhatmahCertificate()" style="background: #25D366; color: #000; font-weight: bold; border: none; border-radius: 10px; padding: 12px 18px; cursor: pointer; flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fab fa-whatsapp"></i> إصدار شهادة الختمة وبث الرابط
+            </button>
+            <button id="ai-script-btn" data-feature="ai-script-btn" onclick="generateAiScript()" style="background: #34495e; color: #fff; font-weight: bold; border: none; border-radius: 10px; padding: 12px 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-brain"></i> سيناريو AI للريلز
+            </button>
+        </div>
+        <div id="khatmahResult" style="display: none; margin-top: 14px; background: rgba(0,0,0,0.6); padding: 14px; border-radius: 12px; border: 1px solid #2ecc71;"></div>
     </div>
 
     <div class="action-btns">
@@ -191,6 +255,83 @@
 </footer>
 
 <script>
+
+async function generateKhatmahCertificate() {
+    const student = document.getElementById('khatmahStudent').value;
+    const phone = document.getElementById('khatmahPhone').value;
+    const surahId = parseInt(document.getElementById('surah').value);
+    const box = document.getElementById('khatmahResult');
+    box.style.display = 'block';
+    box.innerHTML = '<span style="color:#2ecc71;"><i class="fas fa-spinner fa-spin"></i> جاري إنتاج شهادة الختمة مع باركود الأكاديمية...</span>';
+    try {
+        const res = await fetch('/api/reels/khatmah-certificate', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ studentName: student, surahId: surahId, parentPhone: phone, academyName: 'أكاديمية البراء الدولية' })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            box.innerHTML = `
+                <div style="color: #2ecc71; font-weight: bold; margin-bottom: 6px;"><i class="fas fa-check-circle"></i> تم إصدار شهادة الختمة بنجاح!</div>
+                <div style="font-size: 0.85rem; color: #eee; line-height: 1.6;">
+                    <div><b>الطالب:</b> ${data.khatmahCertificate.studentName}</div>
+                    <div><b>السورة:</b> ${data.khatmahCertificate.surah}</div>
+                    <div><b>كود التوثيق (SHA-256):</b> <code style="font-size: 0.75rem; color: #f1c40f;">${data.khatmahCertificate.sha256Hash.substring(0, 24)}...</code></div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="${data.khatmahCertificate.parentWhatsappShareLink}" target="_blank" style="display: inline-block; background: #25D366; color: #000; text-decoration: none; font-weight: bold; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem;">
+                        <i class="fab fa-whatsapp"></i> إرسال الشهادة والفيديو لولي الأمر عبر واتساب ↗
+                    </a>
+                </div>
+            `;
+        } else {
+            box.innerHTML = `<span style="color:#e74c3c;">خطأ: ${data.message || 'فشل توليد الشهادة'}</span>`;
+        }
+    } catch (e) {
+        box.innerHTML = `<span style="color:#e74c3c;">خطأ في الاتصال: ${e.message}</span>`;
+    }
+}
+
+async function generateAiScript() {
+    const surahSelect = document.getElementById('surah');
+    const surahId = parseInt(surahSelect.value);
+    const surahName = surahSelect.options[surahSelect.selectedIndex].getAttribute('data-name');
+    const start = parseInt(document.getElementById('start').value);
+    const end = parseInt(document.getElementById('end').value);
+    const box = document.getElementById('khatmahResult');
+    box.style.display = 'block';
+    box.innerHTML = '<span style="color:#3498db;"><i class="fas fa-brain fa-spin"></i> توليد سيناريو التدبر القرآني والوقفات البيانية بواسطة AI...</span>';
+    try {
+        const res = await fetch('/api/ai/reels-script', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ surahId: surahId, surahName: surahName, startAyah: start, endAyah: end })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            box.innerHTML = `
+                <div style="color: #3498db; font-weight: bold; margin-bottom: 6px;"><i class="fas fa-brain"></i> سيناريو ريلز ${data.script.surahName} (الآيات ${data.script.startAyah}..${data.script.endAyah})</div>
+                <div style="font-size: 0.85rem; color: #eee; line-height: 1.6; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 8px;">
+                    <div><b>الخطاف البصري (0-3s):</b> ${data.script.visualHook}</div>
+                    <div style="margin-top: 4px;"><b>الوقفة التدبرية (3-20s):</b> ${data.script.tafsirInsight}</div>
+                    <div style="margin-top: 4px;"><b>دعوة التفاعل (CTA):</b> ${data.script.callToAction}</div>
+                </div>
+            `;
+        } else {
+            // fallback if endpoint not responding
+            box.innerHTML = `
+                <div style="color: #3498db; font-weight: bold; margin-bottom: 6px;"><i class="fas fa-brain"></i> سيناريو ريلز ${surahName}</div>
+                <div style="font-size: 0.85rem; color: #eee; line-height: 1.6; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 8px;">
+                    <div><b>الخطاف البصري:</b> مشهد تدبري عالي الدقة مع تأثير زووم بطيء متزامن مع التلاوة الخاشعة.</div>
+                    <div style="margin-top: 4px;"><b>المنطقة الآمنة:</b> النصوص داخل النطاق الرأسي 25% - 68% لحماية القراءة من أزرار تيك توك وإنستغرام.</div>
+                </div>
+            `;
+        }
+    } catch (e) {
+        box.innerHTML = `<span style="color:#e74c3c;">خطأ: ${e.message}</span>`;
+    }
+}
+
 let batchQueue = [];
 
 document.getElementById('surah').addEventListener('change', function() {
@@ -309,5 +450,6 @@ async function startBatchProcess() {
     btn.style.display = 'flex'; batchQueue = []; renderBatch();
 }
 </script>
+
 </body>
 </html>
