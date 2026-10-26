@@ -1,0 +1,19 @@
+{
+  "app": "reels-maker-studio",
+  "cloudflareProject": "reels-maker-studio",
+  "deployDir": ".",
+  "liveUrl": "https://reels-maker-studio.pages.dev",
+  "bannedStrings": [],
+  "features": [
+    {
+      "id": "khatmah-cert-btn",
+      "description": "Khatmah Certificate Generation and WhatsApp Dispatch Gate",
+      "autoClick": true
+    },
+    {
+      "id": "ai-script-btn",
+      "description": "AI Quranic Reel Script and Safe-Zone Formatter Gate",
+      "autoClick": true
+    }
+  ]
+}
