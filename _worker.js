@@ -12,6 +12,11 @@ function jsonResponse(status, data, extraHeaders = {}) {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Request-ID, Idempotency-Key',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'DENY',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+      'Permissions-Policy': 'geolocation=(), camera=(), microphone=()',
       'X-Ledger-Invariant-Verified': 'true',
       ...extraHeaders
     }
