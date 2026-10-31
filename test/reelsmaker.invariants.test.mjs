@@ -102,11 +102,12 @@ test("Invariant 6: Append-only Bitcask job ledger records and reloads jobs", () 
     start: 1,
     end: 4,
   });
-  ReelsStore.append(aggregate.job);
+  const job = aggregate.materializeArtifact();
+  ReelsStore.append(job);
 
   const reloaded = ReelsStore.load();
   assert.equal(reloaded.jobs.length, initialCount + 1);
-  assert.equal(reloaded.jobs[0].id, aggregate.job.id);
+  assert.equal(reloaded.jobs[0].id, job.id);
 });
 
 test("Invariant 7: Ubiquitous Language contract file is non-empty and contains essential concepts", async () => {

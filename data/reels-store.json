@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "totalRenderedSeconds": 1287,
+  "totalRenderedSeconds": 1792,
   "jobs": [
     {
-      "id": "job-1793033152163-767",
+      "id": "job-1793463124374-514",
       "reader": "abdulbaset",
       "readerName": "عبد الباسط عبد الصمد",
       "surahId": 112,
@@ -28,20 +28,553 @@
         "deadAirCutVerified": true
       },
       "entropySignature": {
-        "panVariancePercent": -1.96,
-        "colorTempOffsetK": 10,
+        "panVariancePercent": -3.3,
+        "colorTempOffsetK": -135,
         "audioCrossfadeMs": 150,
         "lufsNormalization": -14,
         "kfgqpcUthmaniGlyphsVerified": true,
-        "perceptualHash": "09877d056ea22bbb7df1d7ccdc6085fd9f0d9451e8630693bdabeb32c87e8f0e",
+        "perceptualHash": "536f9ddad747146cdd626527ee541112503be4573228e5bd71bc52ae0b3bb813",
         "duplicateHashBypassActive": true,
-        "timestamp": "2026-10-26T16:45:52.163Z"
+        "timestamp": "2026-10-31T16:12:04.374Z"
       },
       "status": "COMPLETED",
-      "outputFileName": "reel_surah_112_v1_4_1793033152163.mp4",
-      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793033152163.mp4",
-      "createdAt": "2026-10-26T16:45:52.163Z",
-      "completedAt": "2026-10-26T16:45:52.163Z"
+      "outputFileName": "reel_surah_112_v1_4_1793463124374.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793463124374.mp4",
+      "createdAt": "2026-10-31T16:12:04.374Z",
+      "completedAt": "2026-10-31T16:12:04.374Z"
+    },
+    {
+      "id": "job-1793046773484-433",
+      "reader": "abdulbaset",
+      "readerName": "عبد الباسط عبد الصمد",
+      "surahId": 112,
+      "surahNameArabic": "الإخلاص",
+      "startVerse": 1,
+      "endVerse": 4,
+      "verseCount": 4,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 26000,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 1.52,
+        "colorTempOffsetK": 149,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "94ac631053bff431396e49ccda334e53b1646d0e3ddf1b5222d1e6e65bc46d8b",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:32:53.484Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_112_v1_4_1793046773484.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793046773484.mp4",
+      "createdAt": "2026-10-26T20:32:53.484Z",
+      "completedAt": "2026-10-26T20:32:53.484Z"
+    },
+    {
+      "id": "job-1793046677349-635",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 2.12,
+        "colorTempOffsetK": -48,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "fc73dd0cdc2c5365fbde8ae1dcad8dfa89e753b5d5a2dc2ac1ff3f9e21140ac1",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:31:17.349Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793046677349.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793046677349.mp4",
+      "createdAt": "2026-10-26T20:31:17.349Z",
+      "completedAt": "2026-10-26T20:31:17.349Z"
+    },
+    {
+      "id": "job-1793046669838-878",
+      "reader": "abdulbaset",
+      "readerName": "عبد الباسط عبد الصمد",
+      "surahId": 112,
+      "surahNameArabic": "الإخلاص",
+      "startVerse": 1,
+      "endVerse": 4,
+      "verseCount": 4,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 26000,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": -2.71,
+        "colorTempOffsetK": 75,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "9fd776102e96407e24b70ee30914607f17af67a4b87cfff9e8f4ac521f096e73",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:31:09.838Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_112_v1_4_1793046669838.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793046669838.mp4",
+      "createdAt": "2026-10-26T20:31:09.838Z",
+      "completedAt": "2026-10-26T20:31:09.838Z"
+    },
+    {
+      "id": "job-1793046572977-8",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": -1.33,
+        "colorTempOffsetK": -148,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "5a693d1a4fd9a9ca6cfdfa96edf0c7547320c616a652ac599cc4f7d537b12bd6",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:29:32.977Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793046572977.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793046572977.mp4",
+      "createdAt": "2026-10-26T20:29:32.977Z",
+      "completedAt": "2026-10-26T20:29:32.977Z"
+    },
+    {
+      "id": "job-1793046564695-208",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 3.37,
+        "colorTempOffsetK": -65,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "2a399cef876ede580e3541d6f6abb031d1f15bd7b523075c594fdf7aa52bd231",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:29:24.695Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793046564695.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793046564695.mp4",
+      "createdAt": "2026-10-26T20:29:24.695Z",
+      "completedAt": "2026-10-26T20:29:24.695Z"
+    },
+    {
+      "id": "job-1793046560245-683",
+      "reader": "abdulbaset",
+      "readerName": "عبد الباسط عبد الصمد",
+      "surahId": 112,
+      "surahNameArabic": "الإخلاص",
+      "startVerse": 1,
+      "endVerse": 4,
+      "verseCount": 4,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 26000,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 1.73,
+        "colorTempOffsetK": -139,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "6b150ce430924f68564b14ad2a3797ce17047dd5cd7eb3fcfbb19ec517553810",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:29:20.246Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_112_v1_4_1793046560245.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793046560245.mp4",
+      "createdAt": "2026-10-26T20:29:20.246Z",
+      "completedAt": "2026-10-26T20:29:20.246Z"
+    },
+    {
+      "id": "job-1793046352656-595",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": -3.36,
+        "colorTempOffsetK": 56,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "561b9e88185103cd26bc1255afc789401c5462fbabdcd035f28344f768d2ec79",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:25:52.656Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793046352656.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793046352656.mp4",
+      "createdAt": "2026-10-26T20:25:52.656Z",
+      "completedAt": "2026-10-26T20:25:52.656Z"
+    },
+    {
+      "id": "job-1793046340570-29",
+      "reader": "abdulbaset",
+      "readerName": "عبد الباسط عبد الصمد",
+      "surahId": 112,
+      "surahNameArabic": "الإخلاص",
+      "startVerse": 1,
+      "endVerse": 4,
+      "verseCount": 4,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 26000,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 1.53,
+        "colorTempOffsetK": 90,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "89d10e84542abae9fb80ca9658e4aa9f99885a74df6aeddf564deb285868afb7",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:25:40.571Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_112_v1_4_1793046340570.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_112_v1_4_1793046340570.mp4",
+      "createdAt": "2026-10-26T20:25:40.571Z",
+      "completedAt": "2026-10-26T20:25:40.571Z"
+    },
+    {
+      "id": "job-1793045962837-833",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 0.06,
+        "colorTempOffsetK": -148,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "1d665e2bc9777b79aa22b834008b20c2aa124a26e30fdb61aa7a603e3d1ef7ba",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:19:22.837Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793045962837.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793045962837.mp4",
+      "createdAt": "2026-10-26T20:19:22.837Z",
+      "completedAt": "2026-10-26T20:19:22.837Z"
+    },
+    {
+      "id": "job-1793045668343-999",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 3.5,
+        "colorTempOffsetK": 22,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "41349152d1ba2d6b16af4b03f9a54f01f301a4b4a2f29062a2bdf90b8653fc6a",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T20:14:28.343Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793045668343.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793045668343.mp4",
+      "createdAt": "2026-10-26T20:14:28.343Z",
+      "completedAt": "2026-10-26T20:14:28.343Z"
+    },
+    {
+      "id": "job-1793040455737-532",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": -0.1,
+        "colorTempOffsetK": 12,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "1043ce3d63e1dd527132a7e2cd1d73055115bef12fc79c90d8753732e4c762f2",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T18:47:35.737Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793040455737.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793040455737.mp4",
+      "createdAt": "2026-10-26T18:47:35.737Z",
+      "completedAt": "2026-10-26T18:47:35.737Z"
+    },
+    {
+      "id": "job-1793040332293-743",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": -1.47,
+        "colorTempOffsetK": 131,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "dd2d6d266f7e2f4475462d4366812f0f136ebc81e41bd9be3abc91667c587fee",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T18:45:32.293Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793040332293.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793040332293.mp4",
+      "createdAt": "2026-10-26T18:45:32.293Z",
+      "completedAt": "2026-10-26T18:45:32.293Z"
+    },
+    {
+      "id": "job-1793040218692-458",
+      "reader": "alafasy",
+      "readerName": "مشاري راشد العفاسي",
+      "surahId": 1,
+      "surahNameArabic": "الفاتحة",
+      "startVerse": 1,
+      "endVerse": 7,
+      "verseCount": 7,
+      "aspectRatio": "9:16",
+      "resolution": "1080x1920",
+      "durationMs": 45500,
+      "safeZoneTypography": {
+        "minYPercent": 25,
+        "maxYPercent": 68,
+        "clamped": true,
+        "description": "Text clamped strictly within 25% to 68% vertical viewport to avoid TikTok/Reels UI overlay occlusion"
+      },
+      "zeroDeadAirAudio": {
+        "trimmedMs": 120,
+        "active": true,
+        "startOffsetMs": 0,
+        "initialDecibelThreshold": -42,
+        "deadAirCutVerified": true
+      },
+      "entropySignature": {
+        "panVariancePercent": 2.05,
+        "colorTempOffsetK": -120,
+        "audioCrossfadeMs": 150,
+        "lufsNormalization": -14,
+        "kfgqpcUthmaniGlyphsVerified": true,
+        "perceptualHash": "bcff089b14563c650392d4fd330b57cee4f99f0105ca7ec4c93f93c03f2d811c",
+        "duplicateHashBypassActive": true,
+        "timestamp": "2026-10-26T18:43:38.692Z"
+      },
+      "status": "COMPLETED",
+      "outputFileName": "reel_surah_001_v1_7_1793040218692.mp4",
+      "outputFullPath": "D:\\Desktop\\Distinct_Validated_Projects\\reels-maker-studio\\data\\output\\reel_surah_001_v1_7_1793040218692.mp4",
+      "createdAt": "2026-10-26T18:43:38.692Z",
+      "completedAt": "2026-10-26T18:43:38.692Z"
     },
     {
       "id": "job-1792514577878-63",
