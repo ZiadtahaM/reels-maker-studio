@@ -33,6 +33,9 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
+      - name: Initialize SQLite Schema
+        run: node -e "import('./lib/domain/reel-rendering-pipeline.mjs').then(m => m.ReelsStore.getDb())"
+
       - name: Gate 1 - SQLite Hard Relational Constraints & Trigger Sabotage Test
         run: python scripts/gate1-sqlite-sabotage.test.py
 

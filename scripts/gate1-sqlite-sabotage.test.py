@@ -6,16 +6,41 @@ import uuid
 db_path = os.path.join(os.path.dirname(__file__), "..", "data", "reels.sqlite")
 schema_path = os.path.join(os.path.dirname(__file__), "..", "schema.sql")
 
-if not os.path.exists(db_path):
-    print(f"ERROR: SQLite database file not found at {db_path}")
-    sys.exit(1)
-
+os.makedirs(os.path.dirname(db_path), exist_ok=True)
 con = sqlite3.connect(db_path)
 con.execute("PRAGMA foreign_keys = ON;")
 
 if os.path.exists(schema_path):
     with open(schema_path, "r", encoding="utf-8") as f:
         con.executescript(f.read())
+
+# Ensure canonical seeds exist
+reader_count = con.execute("SELECT COUNT(*) FROM readers").fetchone()[0]
+if reader_count == 0:
+    readers = [
+        ("alafasy", "مشاري راشد العفاسي", "Kuwait"),
+        ("abdulbaset", "عبد الباسط عبد الصمد", "Egypt"),
+        ("al-minshawi", "محمد صديق المنشاوي", "Egypt"),
+        ("al-ajmy", "أحمد بن علي العجمي", "Saudi Arabia"),
+        ("al-ghamdi", "سعد الغامدي", "Saudi Arabia"),
+        ("al-shuraim", "سعود الشريم", "Saudi Arabia")
+    ]
+    con.executemany("INSERT OR IGNORE INTO readers VALUES (?, ?, ?)", readers)
+    surahs = [
+        (1, "الفاتحة", 7),
+        (2, "البقرة", 286),
+        (3, "آل عمران", 200),
+        (18, "الكهف", 110),
+        (36, "يس", 83),
+        (55, "الرحمن", 78),
+        (56, "الواقعة", 96),
+        (67, "الملك", 30),
+        (112, "الإخلاص", 4),
+        (113, "الفلق", 5),
+        (114, "الناس", 6)
+    ]
+    con.executemany("INSERT OR IGNORE INTO surahs VALUES (?, ?, ?)", surahs)
+    con.commit()
 
 passed = 0
 failed = 0
