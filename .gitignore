@@ -25,3 +25,8 @@ dist-ssr
 
 .wrangler/
 data/output/
+
+# SQLite databases
+data/*.sqlite*
+*.sqlite*
+
