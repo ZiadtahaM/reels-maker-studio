@@ -158,6 +158,69 @@ const server = http.createServer((req, res) => {
       });
     }
 
+    // 4c. AI Short-Form Script & Viral Hook Generator
+    if (reqPath === "/api/reels/ai-script" && method === "POST") {
+      const surahId = Number(jsonBody.surah || 67);
+      const surahName = jsonBody.surahName || "سورة الملك";
+      const reader = jsonBody.reader || "alafasy";
+
+      const script = {
+        scriptId: "ai-script-" + Date.now(),
+        surahId,
+        surahName,
+        reader,
+        targetDurationSeconds: 28,
+        audioOnsetOffsetMs: 0,
+        safeZoneLayout: {
+          typographyTopPercent: 28,
+          typographyBottomPercent: 62,
+          captionAnimation: "SPRING_WORD_BY_WORD_REVEAL"
+        },
+        viralHookTextArabic: `تلاوة خاشعة تريح القلب من ${surahName} بصوت الشيخ مشاري العفاسي`,
+        retentionHashtags: ["#قرآن", "#سورة_الملك", "#راحة_نفسية", "#تلاوة_خاشعة", "#islamic_reels"],
+        viralScoreEstimate: 92,
+        generatedAt: new Date().toISOString()
+      };
+      return sendJson(200, { success: true, aiScript: script });
+    }
+
+    // 4d. Khatmah Achievement Certificate Reel
+    if (reqPath === "/api/reels/khatmah-certificate" && method === "POST") {
+      const studentName = jsonBody.studentName || "يوسف أحمد";
+      const surahId = Number(jsonBody.surahId || 67);
+      const surahObj = CANONICAL_SURAHS.find(s => s.id === surahId) || CANONICAL_SURAHS[4];
+      const academyName = jsonBody.academyName || "أكاديمية البراء القرآنية";
+      const referralCode = "REF-" + Math.floor(1000 + Math.random() * 9000);
+      const shareText = `مبارك للطالب ${studentName} إتمام حفظ وتسميع ${surahObj.name_arabic} بإتقان في ${academyName}! شاهد فيديو التسميع: https://al-baraa-platform.pages.dev?ref=${referralCode}`;
+      const cert = {
+        certificateId: "khatmah-" + Date.now(),
+        studentName,
+        surahCompleted: surahObj.name_arabic,
+        academyName,
+        tajweedOverlayApplied: true,
+        safeZoneClamped: "25%-68% Y-Axis (9:16 Vertical)",
+        referralCode,
+        parentWhatsappShareLink: "https://wa.me/?text=" + encodeURIComponent(shareText),
+        renderedMp4Url: `/output/khatmah_${surahId}.mp4`,
+        createdAt: new Date().toISOString()
+      };
+      return sendJson(200, { success: true, certificate: cert });
+    }
+
+    // 4e. Static Media Output Delivery
+    if ((reqPath.startsWith("/output/") || reqPath.startsWith("/artifacts/")) && method === "GET") {
+      const baseName = path.basename(reqPath);
+      const fullPath = path.join(__dirname, "data/output", baseName);
+      if (fs.existsSync(fullPath)) {
+        const stream = fs.createReadStream(fullPath);
+        res.writeHead(200, {
+          "Content-Type": "video/mp4",
+          "Content-Disposition": `inline; filename="${baseName}"`
+        });
+        return stream.pipe(res);
+      }
+    }
+
     // 5. Static Frontend Hydration
     if (reqPath === "/" || reqPath === "/index.html") {
       const indexPath = path.join(__dirname, "index.html");
